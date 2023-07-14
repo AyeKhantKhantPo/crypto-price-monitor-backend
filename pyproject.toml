@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "crypto-price-monitor-backend"
+version = "0.1.0"
+description = ""
+authors = ["ayekhantkhantpo <ayekhantkhantpo@gmail.com>"]
+readme = "README.md"
+packages = [{include = "crypto_price_monitor_backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+django = "^4.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
