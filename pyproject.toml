@@ -10,6 +10,8 @@ packages = [{include = "crypto_price_monitor_backend"}]
 python = "^3.8"
 django = "^4.2.3"
 requests = "^2.31.0"
+djangorestframework = "^3.14.0"
+django-cors-headers = "^4.2.0"
 
 
 [build-system]

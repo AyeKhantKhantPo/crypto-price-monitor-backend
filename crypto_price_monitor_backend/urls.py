@@ -17,10 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from crypto_monitor_backend import views
-
+from authentication.views import UserCreateAPIView, sign_in
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('log-access/', views.log_access, name='log_access'),
-    path('notify-price-change/', views.notify_price_change, name='notify_price_change'),
+    path('notify-price-change/', views.notify_price_change,
+         name='notify_price_change'),
+    path('api/users/sign-up', UserCreateAPIView.as_view(), name='user-create'),
+    path('api/users/sign-in', sign_in, name='sign-in'),
+
 ]
