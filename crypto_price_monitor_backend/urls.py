@@ -18,13 +18,17 @@ from django.contrib import admin
 from django.urls import path
 from crypto_monitor_backend import views
 from authentication.views import UserCreateAPIView, sign_in
+from crypto_monitor_backend.views import SaveCurrencyPairView, root_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('log-access/', views.log_access, name='log_access'),
-    path('notify-price-change/', views.notify_price_change,
-         name='notify_price_change'),
+    path('log-access/', views.LogAccessView.as_view(), name='log_access'),
+    path('notify-price-change/', views.NotifyPriceChangeView.as_view(), name='notify_price_change'),
     path('api/users/sign-up', UserCreateAPIView.as_view(), name='user-create'),
     path('api/users/sign-in', sign_in, name='sign-in'),
-
+    path('api/save-currency-pair', SaveCurrencyPairView.as_view(), name='save_currency_pair'),
+    path('api/save-currency-pair/<str:username>', SaveCurrencyPairView.as_view(), name='get-saved-pairs'),
+    
+    # Add a URL pattern for the root path
+    path('', views.root_view, name='root'),
 ]
