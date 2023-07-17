@@ -8,7 +8,7 @@ from rest_framework.decorators import api_view
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http import JsonResponse
-
+from django.forms.models import model_to_dict
 
 User = get_user_model()
 
@@ -39,9 +39,6 @@ def sign_in(request):
 
         login(request, user)
 
-        # Continue with the rest of your code for successful sign-in
-        # ...
-
-        return JsonResponse({'message': 'Sign-in successful'}, status=200)
+        return JsonResponse({'message': 'Sign-in successful', 'username': username}, status=200)
 
     return JsonResponse({'error': 'Bad Request'}, status=400)
