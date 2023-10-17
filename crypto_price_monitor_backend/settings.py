@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'crypto_monitor_backend',
     'authentication',
     'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
