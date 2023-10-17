@@ -20,6 +20,7 @@ from crypto_monitor_backend import views
 from authentication.views import UserCreateAPIView, sign_in
 from crypto_monitor_backend.views import SaveCurrencyPairView, root_view
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('log-access/', views.LogAccessView.as_view(), name='log_access'),
@@ -28,7 +29,7 @@ urlpatterns = [
     path('api/users/sign-in', sign_in, name='sign-in'),
     path('api/save-currency-pair', SaveCurrencyPairView.as_view(), name='save_currency_pair'),
     path('api/save-currency-pair/<str:username>', SaveCurrencyPairView.as_view(), name='get-saved-pairs'),
-    
     # Add a URL pattern for the root path
     path('', views.root_view, name='root'),
+
 ]
